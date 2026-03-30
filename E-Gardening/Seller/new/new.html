@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Seller Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/E-Gardening/header.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f4f6f8;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: #2e7d32;
+            padding: 15px 40px;
+            color: #fff;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        /* Dashboard Section */
+        .dashboard {
+            padding: 50px 40px;
+        }
+
+        .dashboard h2 {
+            margin-bottom: 30px;
+            font-size: 28px;
+            text-align: center;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .dashboard-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+
+        .dashboard-card .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .dashboard-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .dashboard-card p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-card button {
+            padding: 10px 22px;
+            border: none;
+            background: #2e7d32;
+            color: #fff;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .dashboard-card button:hover {
+            background: #256428;
+        }
+
+        /* Footer */
+        footer {
+            background: #1b1b1b;
+            color: #ccc;
+            padding: 40px 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .footer-section ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 14px;
+            border-top: 1px solid #333;
+            padding-top: 15px;
+        }
+        /* ================= RESPONSIVE ================= */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .dashboard {
+    padding: 30px 20px;
+  }
+
+  header {
+    padding: 15px 20px;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+
+  /* Header */
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Cards spacing */
+  .card-grid {
+    gap: 15px;
+  }
+
+  .dashboard-card {
+    padding: 20px;
+  }
+
+  .dashboard-card h3 {
+    font-size: 18px;
+  }
+
+  .dashboard-card p {
+    font-size: 13px;
+  }
+
+  /* Footer */
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section {
+    width: 100%;
+  }
+}
+
+/* Small Mobiles */
+@media (max-width: 480px) {
+
+  .dashboard {
+    padding: 20px 10px;
+  }
+
+  .dashboard h2 {
+    font-size: 20px;
+  }
+
+  .dashboard-card button {
+    width: 100%;
+    padding: 10px;
+  }
+
+  footer {
+    padding: 20px 10px;
+  }
+}
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="logo"></div>
+    <h1>🌿 Garden    Seller Dashboard</h1>
+</header>
+
+<!-- Dashboard Cards -->
+<section class="dashboard">
+    <h2>Welcome Back, Seller 👋</h2>
+
+    <div class="card-grid">
+        <!-- 1st -->
+        <div class="dashboard-card">
+            <div class="icon">💰</div>
+            <h3>Sales</h3>
+            <p>View total sales, revenue, and performance.</p>
+            <a href="./sales.html"><button>View Sales</button></a>
+        </div>
+
+        <!-- 2nd -->
+        <div class="dashboard-card">
+            <div class="icon">📦</div>
+            <h3>Orders</h3>
+            <p>Manage customer orders and delivery status.</p>
+            <a href="./orders.html"><button>View Orders</button></a>
+        </div>
+
+        <!-- 3rd -->
+        <div class="dashboard-card">
+            <div class="icon">🛒</div>
+            <h3>Products</h3>
+            <p>Add, edit, and manage your products.</p>
+           <a href="./product.html"> <button>Manage Products</button></a>
+        </div>
+
+        <!-- 4th -->
+        <div class="dashboard-card">
+            <div class="icon">👤</div>
+            <h3>Profile</h3>
+            <p>View and update your seller profile.</p>
+           <a href="./profile.html"> <button>View Profile</button></a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>About</h4>
+            <p>Best platform for plant and garden sellers.</p>
+        </div>
+
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Orders</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <p>Email: support@example.com</p>
+        </div>
+    </div>
+
+        <!-- FOOTER -->
+  <footer class="footer">
+  <div class="footer-container">
+
+    <!-- About Section -->
+    <div class="footer-section">
+      <h3>Green Garden</h3>
+      <p>Your one-stop shop for plants, seeds, and gardening tools. Grow your dream garden with us.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+        <ul>
+        <li><a href="./plantcare.html">Home</a></li>
+        <li><a href="./decoserv.html">Decoration Services</a></li>
+        <li><a href="./fruits.html">Plants</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-section">
+      <h3>Contact</h3>
+      <p>Email: support@greengarden.com</p>
+      <p>Phone: +91 98765 43210</p>
+      <p>Location: Hyderabad, India</p>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="#">🌱FaceBook</a>
+        <a href="#">🌿Instagram</a>
+        <a href="#">🌼YouTube</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Line -->
+  <div class="footer-bottom">
+    <p>© 2026 Green Garden | All Rights Reserved</p>
+  </div>
+</footer>
+
+</body>
+</html>

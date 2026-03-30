@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sales Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/E-Gardening/header.css">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f4f6f8;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: #2e7d32;
+            padding: 15px 40px;
+            color: #fff;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        /* Sales Section */
+        .sales-section {
+            padding: 50px 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .sales-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .sales-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .sales-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .sales-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .sales-card p {
+            font-size: 26px;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        /* Analytics */
+        .analytics {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .analytics h3 {
+            margin-bottom: 20px;
+            font-size: 22px;
+            text-align: center;
+        }
+
+        canvas {
+            max-width: 100%;
+        }
+
+        /* Footer */
+     /* footer {
+            margin-top: 40px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+            font-size: 13px;
+            color: #eee;
+        } */
+         .footer {
+  background-color: #2e7d32;
+  color: white;
+  padding: 40px 20px 10px;
+  font-family: Arial, sans-serif;
+}
+
+/* Container */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Sections */
+.footer-section {
+  width: 220px;
+  margin: 10px;
+}
+
+.footer-section h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+/* Links */
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin: 6px 0;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: #c8e6c9;
+}
+
+.footer-section ul li a:hover {
+  color: #ffffff;
+}
+
+/* Social Icons */
+.social-icons a {
+  display: block;
+  text-decoration: none;
+  color: #c8e6c9;
+  margin: 5px 0;
+}
+
+.social-icons a:hover {
+  color: #ffffff;
+}
+
+/* Bottom */
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #a5d6a7;
+  margin-top: 20px;
+  padding-top: 10px;
+  font-size: 14px;
+}
+/* ================= RESPONSIVE ================= */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .sales-section {
+    padding: 30px 20px;
+  }
+
+  header {
+    padding: 15px 20px;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+
+  /* Header */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Navbar hidden */
+  #navbar {
+    display: none;
+    flex-direction: column;
+    background: #2e7d32;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  #navbar a {
+    padding: 10px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+  }
+
+  /* Menu icon */
+  .menu-toggle {
+    display: block;
+    font-size: 22px;
+    cursor: pointer;
+  }
+
+  /* Show menu */
+  #navbar.active {
+    display: flex;
+  }
+
+  /* Cards */
+  .sales-card {
+    padding: 20px;
+  }
+
+  .sales-card h3 {
+    font-size: 18px;
+  }
+
+  .sales-card p {
+    font-size: 22px;
+  }
+
+  /* Chart */
+  .analytics {
+    padding: 20px;
+  }
+
+  canvas {
+    height: auto !important;
+  }
+
+  /* Footer */
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section {
+    width: 100%;
+  }
+}
+
+/* Small Mobiles */
+@media (max-width: 480px) {
+
+  .sales-section {
+    padding: 20px 10px;
+  }
+
+  .sales-section h2 {
+    font-size: 22px;
+  }
+
+  .sales-card p {
+    font-size: 20px;
+  }
+}
+    </style>
+</head>
+<body>
+   <header>
+        <div class="logo">🌿 Garden</div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav id="navbar">
+                            <a href="/E-Gardening/new/new.html">DASHBOARD</a>
+                <a href="/E-Gardening/Seller/new/sales.html">SALES</a>
+                <a href="/E-Gardening/Seller/new/orders.html">ORDERS</a>
+                <a href="/E-Gardening/Seller/new/product.html">PRODUCT</a>
+                <a href="/E-Gardening/Seller/new/profile.html">PROFILE</a>
+   
+        <!-- LOGOUT BUTTON ADDED -->
+  <a href="../Index.html" class="auth-link" id="logoutBtn">Logout</a>
+    </div>
+        </nav>
+        </header>
+<!-- Header -->
+
+
+<!-- Sales Content -->
+<section class="sales-section">
+    <h2>Sales Overview 📊</h2>
+
+    <div class="sales-cards">
+        <div class="sales-card">
+            <h3>Total Sales</h3>
+            <p>₹ 1,25,000</p>
+        </div>
+
+        <div class="sales-card">
+            <h3>Last Month Sales</h3>
+            <p>₹ 35,000</p>
+        </div>
+
+        <div class="sales-card">
+            <h3>Current Month Sales</h3>
+            <p>₹ 18,500</p>
+        </div>
+
+        <div class="sales-card">
+            <h3>Pending Amount</h3>
+            <p>₹ 7,200</p>
+        </div>
+    </div>
+
+    <!-- Analytics Chart -->
+    <div class="analytics">
+        <h3>Sales Analytics</h3>
+        <canvas id="salesChart" height="120"></canvas>
+    </div>
+</section>
+
+<!-- Footer -->
+        <!-- FOOTER -->
+  <footer class="footer">
+  <div class="footer-container">
+
+    <!-- About Section -->
+    <div class="footer-section">
+      <h3>Green Garden</h3>
+      <p>Your one-stop shop for plants, seeds, and gardening tools. Grow your dream garden with us.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+        <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Decoration Services</a></li>
+        <li><a href="#">Plants</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-section">
+      <h3>Contact</h3>
+      <p>Email: support@greengarden.com</p>
+      <p>Phone: +91 98765 43210</p>
+      <p>Location: Hyderabad, India</p>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="#">🌱FaceBook</a>
+        <a href="#">🌿Instagram</a>
+        <a href="#">🌼YouTube</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Line -->
+  <div class="footer-bottom">
+    <p>© 2026 Green Garden | All Rights Reserved</p>
+  </div>
+</footer>
+
+<!-- Chart Script -->
+<script>
+    const ctx = document.getElementById('salesChart').getContext('2d');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Last Month', 'Current Month', 'Pending'],
+            datasets: [{
+                label: 'Sales Amount (₹)',
+                data: [35000, 18500, 7200],
+                backgroundColor: [
+                    '#66bb6a',
+                    '#2e7d32',
+                    '#ffa726'
+                ],
+                borderRadius: 8
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
