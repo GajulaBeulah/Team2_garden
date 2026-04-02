@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Delete Product</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/E-Gardening/header.css">
+    <link rel="stylesheet" href="../../header.css">
     <style>
         * {
             margin: 0;
@@ -19,14 +19,44 @@
         }
 
         /* Header */
-        header {
-            background: #2e7d32;
-            padding: 15px 40px;
-            color: #fff;
-        }
-
         header h1 {
             font-size: 24px;
+        } */
+           /* Header/Navbar */
+        header {
+        background-color: #0b140c;
+            padding: 15px 40px;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        /* .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        } */
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 15px;
+            transition: 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #c8e6c9;
         }
 
         /* Delete Section */
@@ -115,174 +145,116 @@
         }
 
         /* Footer */
-.footer {
-  background-color: #2e7d32;
-  color: white;
-  padding: 40px 20px 10px;
-  font-family: Arial, sans-serif;
-}
+             footer {
+            background: green;
+            color:white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 200px;
+        }
 
-/* Container */
-.footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-/* Sections */
-.footer-section {
-  width: 220px;
-  margin: 10px;
-}
-
-.footer-section h3 {
-  margin-bottom: 10px;
-  font-size: 18px;
-}
-
-/* Links */
-.footer-section ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-section ul li {
-  margin: 6px 0;
-}
-
-.footer-section ul li a {
-  text-decoration: none;
-  color: #c8e6c9;
-}
-
-.footer-section ul li a:hover {
-  color: #ffffff;
-}
-
-/* Social Icons */
-.social-icons a {
-  display: block;
-  text-decoration: none;
-  color: #c8e6c9;
-  margin: 5px 0;
-}
-
-.social-icons a:hover {
-  color: #ffffff;
-}
-
-/* Bottom */
-.footer-bottom {
-  text-align: center;
-  border-top: 1px solid #a5d6a7;
-  margin-top: 20px;
-  padding-top: 10px;
-  font-size: 14px;
-}
-/* ================= RESPONSIVE ================= */
-
-/* Tablets */
-@media (max-width: 992px) {
-  .delete-section {
-    padding: 30px 20px;
-  }
-
-  header {
-    padding: 15px 20px;
-  }
-}
-
-/* Mobile Devices */
+        .footer-bottom {
+            text-align: center;
+            font-size: 14px;
+            border-top: 1px solid #333;
+            padding-top: 15px;
+        }
+        /* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
 
-  /* Header */
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+    header{
+        padding:15px 20px;
+    }
 
-  #navbar {
-    display: none;
-    flex-direction: column;
-    background: #2e7d32;
-    width: 100%;
-    margin-top: 10px;
-  }
+    header h1{
+        font-size:20px;
+        text-align:center;
+    }
 
-  #navbar a {
-    padding: 10px;
-    border-top: 1px solid rgba(255,255,255,0.2);
-  }
+    .delete-section{
+        padding:30px 20px;
+    }
 
-  .menu-toggle {
-    display: block;
-    cursor: pointer;
-    font-size: 22px;
-  }
+    .delete-section h2{
+        font-size:22px;
+    }
 
-  /* Show menu when active */
-  #navbar.active {
-    display: flex;
-  }
+    .delete-form{
+        padding:25px;
+    }
 
-  /* Form */
-  .delete-form {
-    padding: 20px;
-  }
+    .form-group input,
+    .form-group textarea{
+        font-size:14px;
+        padding:10px;
+    }
 
-  .delete-section h2 {
-    font-size: 22px;
-  }
+    .confirm-box{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:6px;
+    }
 
-  /* Footer */
-  .footer-container {
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-  }
+    .btn-delete{
+        padding:12px;
+        font-size:15px;
+    }
 
-  .footer-section {
-    width: 100%;
-  }
+    footer{
+        margin-top:80px;
+        padding:15px;
+    }
+
 }
 
-/* Small Mobiles */
-@media (max-width: 480px) {
+@media (max-width:480px){
 
-  .delete-section {
-    padding: 20px 10px;
-  }
+    .delete-form{
+        padding:20px;
+    }
 
-  .btn-delete {
-    font-size: 14px;
-    padding: 12px;
-  }
+    .delete-section h2{
+        font-size:20px;
+    }
 
-  .warning-box {
-    font-size: 13px;
-  }
+    header h1{
+        font-size:18px;
+    }
+
 }
-    </style>
+   /* Fix navbar for mobile */
+@media (max-width: 768px){
+
+    .nav-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+} </style>
 </head>
 <body>
 
 <!-- Header -->
-   <header>
-        <div class="logo">🌿 Garden</div>
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-        <nav id="navbar">
-             <a href="/E-Gardening/new/new.html">DASHBOARD</a>
-                <a href="/E-Gardening/Seller/new/sales.html">SALES</a>
-                <a href="/E-Gardening/Seller/new/orders.html">ORDERS</a>
-                <a href="/E-Gardening/Seller/new/product.html">PRODUCT</a>
-                <a href="/E-Gardening/Seller/new/profile.html">PROFILE</a>
-   
-        <!-- LOGOUT BUTTON ADDED -->
-  <a href="../Index.html" class="auth-link" id="logoutBtn">Logout</a>
-    </div>
+<header>
+    <div class="nav-container">
+        <h1 class="logo">🌿 Garden Seller Dashboard</h1>
+
+        <nav>
+            <ul>
+                <li><a href="./sales.html">Sales</a></li>
+                <li><a href="./orders.html">Orders</a></li>
+                <li><a href="./product.html">Products</a></li>
+                <li><a href="./profile.html">Profile</a></li>
+                <li><a href="../selllogin.html" onclick="logout()">Logout</a></li>
+            </ul>
         </nav>
-        </header>
+    </div>
+</header>
 
 <!-- Delete Product Form -->
 <section class="delete-section">
@@ -315,8 +287,7 @@
 </section>
 
 <!-- Footer -->
-
-        <!-- FOOTER -->
+      <!-- FOOTER -->
   <footer class="footer">
   <div class="footer-container">
 

@@ -193,7 +193,7 @@ width:90%;
 <div class="error-message" id="loginPassError"></div>
 </div>
 
-<button class="btn" onclick="loginSeller()">Login</button>
+<button class="btn" Onclick="loginSeller(); login();">Login</button>
 
 <div class="extra">
 New User? <a onclick="showRegister()">Create Account</a>
@@ -619,7 +619,39 @@ function isValidPassword(password){
 function toggleMenu(){
 document.getElementById("navbar").classList.toggle("active");
 }
+function login(){
+  let user_email = "user@gmail.com"
+  let user_password = "user123"
 
+  let seller_email = "seller@gmail.com"
+  let seller_password = "seller123"
+
+  let admin_email = "admin@gmail.com"
+  let admin_password = "admin123"
+
+//   let rescue_email = "rescue@gmail.com"
+//   let rescue_password = "rescue123"
+
+  let email = document.getElementById("loginEmail").value;
+  let password = document.getElementById("loginPass").value;
+  
+  if (email === user_email && password === user_password){
+    window.location.href = "../User/plantcare.html";
+  }
+  else if (email === seller_email && password === seller_password){
+    window.location.href = "../Seller//new/sellerdashboard.html";
+  }
+  else if (email === admin_email && password === admin_password){
+    window.location.href = "../admin/index.html";
+  }
+//   else if (email === rescue_email && password === rescue_password){
+//     window.location.href = "./rescue-home-page.html";
+//   }
+  else{
+    document.getElementById("notification").innerHTML = "Invalid Credentials";
+    document.getElementById("notification").style.color = "red";
+  }
+}
 </script>
 
 </body>

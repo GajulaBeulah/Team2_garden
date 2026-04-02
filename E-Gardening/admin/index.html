@@ -46,7 +46,8 @@ body{
     font-size:34px;
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:40px;
+    
 }
 
 .header-content p{
@@ -219,6 +220,9 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 30px;
+   
+   
 }
 
 .logo{
@@ -229,7 +233,6 @@ header{
 
 #navbar{
     display: flex;
-    gap: 0;
     align-items: center;
 }
 
@@ -243,7 +246,7 @@ header{
     padding: 12px 18px;
     color: #fff;
     text-decoration: none;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 #navbar > a:hover,
@@ -264,14 +267,14 @@ header{
 
 .dropdown:hover .dropdown-menu{
     display: flex;
-    flex-direction: column;
+    
 }
 
 .dropdown-menu a{
     padding: 12px 20px;
     color: #fff;
-    text-decoration: none;
-    transition: 0.3s;
+    display: block;
+    
 }
 
 .dropdown-menu a:hover{
@@ -415,7 +418,7 @@ footer{
 </head>
 
 <body>
-    <header>
+     <header>
         <div class="logo">🌿 Garden Admin</div>
         <button class="menu-toggle" onclick="toggleMenu()">☰</button>
         <nav id="navbar">
@@ -431,11 +434,11 @@ footer{
                 </div>
             </div>
         </nav>
-        <!-- <div class="icons">
+          <!-- <div class="icons">
             <span title="Search">🔍</span>
             <span title="Settings">⚙️</span>
             <span title="Profile">👤</span>
-        </div> -->
+        </div>   -->
     </header>
 
 <div class="dashboard-container">
@@ -447,10 +450,7 @@ footer{
         </div>
     </div>
 
-    <div class="welcome-banner">
-        <h2>🌿 Welcome, Admin</h2>
-        <p>Manage plants, sellers, users, and monitor the growth of your green marketplace.</p>
-    </div>
+    
 
     <div class="stats-grid">
         <div class="stat-card">

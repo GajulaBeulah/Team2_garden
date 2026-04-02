@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Edit Product</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/E-Gardening/header.css">
+    <link rel="stylesheet" href="../../header.css">
     <style>
         * {
             margin: 0;
@@ -20,15 +20,50 @@
 
         /* Header */
         header {
+            background-color: #0b140c;
+            padding: 15px 40px;
+            color: #fff;
+             display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* header h1 {
+            font-size: 24px;
+        }
+        header {
             background: #2e7d32;
             padding: 15px 40px;
             color: #fff;
+        } */
+
+        /* .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        } */
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
         }
 
-        header h1 {
-            font-size: 24px;
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
         }
 
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 15px;
+            transition: 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #c8e6c9;
+        }
         /* Form Section */
         .edit-product-section {
             padding: 50px 40px;
@@ -106,179 +141,110 @@
         }
 
         /* Footer */
-.footer {
-  background-color: #2e7d32;
-  color: white;
-  padding: 40px 20px 10px;
-  font-family: Arial, sans-serif;
+             footer {
+            background: green;
+            color:white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 150px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 14px;
+            border-top: 1px solid #333;
+            padding-top: 15px;
+        }
+        /* RESPONSIVE DESIGN */
+@media (max-width: 768px){
+
+    header{
+        padding:15px 20px;
+        text-align:center;
+    }
+
+    header h1{
+        font-size:20px;
+    }
+
+    .edit-product-section{
+        padding:30px 20px;
+    }
+
+    .edit-product-section h2{
+        font-size:22px;
+    }
+
+    .edit-form{
+        padding:25px;
+    }
+
+    .form-group input,
+    .form-group textarea{
+        padding:10px;
+        font-size:14px;
+    }
+
+    .btn-save{
+        padding:12px;
+        font-size:15px;
+    }
+
+    footer{
+        margin-top:80px;
+        padding:15px;
+    }
+
 }
 
-/* Container */
-.footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+@media (max-width:480px){
+
+    header h1{
+        font-size:18px;
+    }
+
+    .edit-product-section h2{
+        font-size:20px;
+    }
+
+    .edit-form{
+        padding:20px;
+    }
+
 }
+    /* Fix navbar for mobile */
+@media (max-width: 768px){
 
-/* Sections */
-.footer-section {
-  width: 220px;
-  margin: 10px;
-}
+    .nav-container {
+        flex-direction: column;
+        gap: 10px;
+    }
 
-.footer-section h3 {
-  margin-bottom: 10px;
-  font-size: 18px;
-}
-
-/* Links */
-.footer-section ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-section ul li {
-  margin: 6px 0;
-}
-
-.footer-section ul li a {
-  text-decoration: none;
-  color: #c8e6c9;
-}
-
-.footer-section ul li a:hover {
-  color: #ffffff;
-}
-
-/* Social Icons */
-.social-icons a {
-  display: block;
-  text-decoration: none;
-  color: #c8e6c9;
-  margin: 5px 0;
-}
-
-.social-icons a:hover {
-  color: #ffffff;
-}
-
-/* Bottom */
-.footer-bottom {
-  text-align: center;
-  border-top: 1px solid #a5d6a7;
-  margin-top: 20px;
-  padding-top: 10px;
-  font-size: 14px;
-}
-/* ================= RESPONSIVE ================= */
-
-/* Tablets */
-@media (max-width: 992px) {
-  .edit-product-section {
-    padding: 30px 20px;
-  }
-
-  header {
-    padding: 15px 20px;
-  }
-}
-
-/* Mobile Devices */
-@media (max-width: 768px) {
-
-  /* Header layout */
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  /* Navbar hidden by default */
-  #navbar {
-    display: none;
-    flex-direction: column;
-    background: #2e7d32;
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  #navbar a {
-    padding: 10px;
-    border-top: 1px solid rgba(255,255,255,0.2);
-  }
-
-  /* Menu icon */
-  .menu-toggle {
-    display: block;
-    font-size: 22px;
-    cursor: pointer;
-  }
-
-  /* Show menu */
-  #navbar.active {
-    display: flex;
-  }
-
-  /* Form */
-  .edit-form {
-    padding: 20px;
-  }
-
-  .edit-product-section h2 {
-    font-size: 22px;
-  }
-
-  /* Image */
-  .image-preview img {
-    max-width: 150px;
-  }
-
-  /* Footer */
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .footer-section {
-    width: 100%;
-  }
-}
-
-/* Small Mobiles */
-@media (max-width: 480px) {
-
-  .edit-product-section {
-    padding: 20px 10px;
-  }
-
-  .btn-save {
-    font-size: 14px;
-    padding: 12px;
-  }
-}
-    </style>
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+}</style>
 </head>
 <body>
 
 <!-- Header -->
- 
-   <header>
-        <div class="logo">🌿 Garden</div>
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-        <nav id="navbar">
-               <a href="/E-Gardening/new/new.html">DASHBOARD</a>
-                <a href="/E-Gardening/Seller/new/sales.html">SALES</a>
-                <a href="/E-Gardening/Seller/new/orders.html">ORDERS</a>
-                <a href="/E-Gardening/Seller/new/product.html">PRODUCT</a>
-                <a href="/E-Gardening/Seller/new/profile.html">PROFILE</a>
-   
-        <!-- LOGOUT BUTTON ADDED -->
-  <a href="../Index.html" class="auth-link" id="logoutBtn">Logout</a>
-    </div>
+<header>
+    <div class="nav-container">
+        <h1 class="logo">🌿 Garden Seller Dashboard</h1>
+
+        <nav>
+            <ul>
+                <li><a href="./sales.html">Sales</a></li>
+                <li><a href="./orders.html">Orders</a></li>
+                <li><a href="./product.html">Products</a></li>
+                <li><a href="./profile.html">Profile</a></li>
+                <li><a href="../selllogin.html" onclick="logout()">Logout</a></li>
+            </ul>
         </nav>
-        </header>
-       
+    </div>
+</header>
 
 <!-- Edit Product Form -->
 <section class="edit-product-section">
@@ -315,8 +281,7 @@
 </section>
 
 <!-- Footer -->
-
-        <!-- FOOTER -->
+      <!-- FOOTER -->
   <footer class="footer">
   <div class="footer-container">
 
@@ -362,6 +327,5 @@
     <p>© 2026 Green Garden | All Rights Reserved</p>
   </div>
 </footer>
-
 </body>
 </html>

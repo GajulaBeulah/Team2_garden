@@ -1,337 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Products Dashboard</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/E-Gardening/header.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+<meta charset="UTF-8">
+<title>Products Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../header.css">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
 
-        body {
-            background: #f4f6f8;
-            color: #333;
-        }
-
-        /* Header */
+body{
+    background:#f4f6f8;
+    color:#333;
+}
+   /* Header/Navbar */
         header {
-            background: #2e7d32;
+           background-color: #0b140c;
             padding: 15px 40px;
             color: #fff;
         }
 
-        header h1 {
-            font-size: 24px;
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        /* Products Section */
-        .products-section {
-            padding: 50px 40px;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .products-section h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 28px;
-        }
-
-        .products-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .product-card {
-            background: #fff;
-            padding: 50px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-        }
-
-        .product-card h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        .product-card p {
-            font-size: 26px;
+        .logo {
+            font-size: 22px;
             font-weight: bold;
-            color: #2e7d32;
         }
 
-        /* Actions */
-        .product-actions {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        nav ul {
+            list-style: none;
+            display: flex;
             gap: 25px;
         }
 
-        .action-card {
-            background: #fff;
-            padding: 50px;
-            border-radius: 12px;
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 15px;
+            transition: 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #c8e6c9;
+        }
+.products-section{
+    padding:50px 40px;
+    max-width:1200px;
+    margin:auto;
+}
+
+.products-section h2{
+    text-align:center;
+    margin-bottom:30px;
+    font-size:28px;
+}
+
+.products-cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-bottom:20px;
+}
+
+.product-card{
+    background:#fff;
+    padding:50px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+.product-card:hover{
+    transform:translateY(-5px);
+}
+
+.product-card h3{
+    margin-bottom:10px;
+}
+
+.product-card p{
+    font-size:26px;
+    font-weight:bold;
+    color:#2e7d32;
+}
+
+/* Dropdown */
+.dropdown{
+    display:none;
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    margin-bottom:40px;
+    animation:fadeIn 0.3s ease-in-out;
+}
+
+.dropdown ul{
+    list-style:none;
+}
+
+.dropdown ul li{
+    padding:8px 0;
+    border-bottom:1px solid #eee;
+}
+
+.dropdown ul li:last-child{
+    border-bottom:none;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(-10px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* Actions */
+.product-actions{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.action-card{
+    background:#fff;
+    padding:50px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+.action-card h3{
+    margin-bottom:15px;
+}
+
+.action-card button{
+    padding:10px 22px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:14px;
+    color:#fff;
+}
+
+.btn-edit{
+    background:#2e7d32;
+}
+
+.btn-edit:hover{
+    background:#256428;
+}
+
+.btn-delete{
+    background:#d32f2f;
+}
+
+.btn-delete:hover{
+    background:#b71c1c;
+}
+
+ /* Footer */
+            footer {
+            background: green;
+            color:white;
             text-align: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            padding: 20px;
+            margin-top: 300px;
         }
-
-        .action-card h3 {
-            margin-bottom: 15px;
-            font-size: 20px;
-        }
-
-        .action-card button {
-            padding: 10px 22px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 14px;
-            color: #fff;
-        }
-
-        .btn-edit {
-            background: #2e7d32;
-        }
-
-        .btn-edit:hover {
-            background: #256428;
-        }
-
-        .btn-delete {
-            background: #d32f2f;
-        }
-
-        .btn-delete:hover {
-            background: #b71c1c;
-        }
-
-        /* Footer */
-.footer {
-  background-color: #2e7d32;
-  color: white;
-  padding: 40px 20px 10px;
-  font-family: Arial, sans-serif;
-}
-
-/* Container */
-.footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-/* Sections */
-.footer-section {
-  width: 220px;
-  margin: 10px;
-}
-
-.footer-section h3 {
-  margin-bottom: 10px;
-  font-size: 18px;
-}
-
-/* Links */
-.footer-section ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-section ul li {
-  margin: 6px 0;
-}
-
-.footer-section ul li a {
-  text-decoration: none;
-  color: #c8e6c9;
-}
-
-.footer-section ul li a:hover {
-  color: #ffffff;
-}
-
-/* Social Icons */
-.social-icons a {
-  display: block;
-  text-decoration: none;
-  color: #c8e6c9;
-  margin: 5px 0;
-}
-
-.social-icons a:hover {
-  color: #ffffff;
-}
-
-/* Bottom */
-.footer-bottom {
-  text-align: center;
-  border-top: 1px solid #a5d6a7;
-  margin-top: 20px;
-  padding-top: 10px;
-  font-size: 14px;
-}
 /* ================= RESPONSIVE ================= */
 
-/* Tablets */
+/* Tablet */
 @media (max-width: 992px) {
-  .products-section {
-    padding: 30px 20px;
-  }
 
-  header {
-    padding: 15px 20px;
-  }
+    .nav-container {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .products-section {
+        padding: 30px 20px;
+    }
 }
 
-/* Mobile Devices */
-@media (max-width: 768px) {
+/* Mobile */
+@media (max-width: 600px) {
 
-  /* Header */
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+    header {
+        padding: 15px 20px;
+    }
 
-  /* Navbar hidden */
-  #navbar {
-    display: none;
-    flex-direction: column;
-    background: #2e7d32;
-    width: 100%;
-    margin-top: 10px;
-  }
+    .logo {
+        font-size: 18px;
+    }
 
-  #navbar a {
-    padding: 10px;
-    border-top: 1px solid rgba(255,255,255,0.2);
-  }
+    .products-section {
+        padding: 20px 10px;
+    }
 
-  /* Menu icon */
-  .menu-toggle {
-    display: block;
-    font-size: 22px;
-    cursor: pointer;
-  }
+    .product-card,
+    .action-card {
+        padding: 25px;
+    }
 
-  /* Show menu */
-  #navbar.active {
-    display: flex;
-  }
+    .product-card p {
+        font-size: 20px;
+    }
 
-  /* Cards */
-  .product-card,
-  .action-card {
-    padding: 25px;
-  }
+    .dropdown {
+        padding: 15px;
+    }
 
-  .product-card h3,
-  .action-card h3 {
-    font-size: 18px;
-  }
-
-  .product-card p {
-    font-size: 22px;
-  }
-
-  /* Buttons full width */
-  .action-card button {
-    width: 100%;
-  }
-
-  /* Footer */
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .footer-section {
-    width: 100%;
-  }
-}
-
-/* Small Mobiles */
-@media (max-width: 480px) {
-
-  .products-section {
-    padding: 20px 10px;
-  }
-
-  .products-section h2 {
-    font-size: 22px;
-  }
-
-  .product-card p {
-    font-size: 20px;
-  }
-
-  .action-card button {
-    padding: 12px;
-    font-size: 14px;
-  }
-}
-    </style>
+    footer {
+        margin-top: 40px; /* fix large gap */
+        padding: 15px;
+        font-size: 14px;
+    }
+}</style>
 </head>
+
 <body>
+<header>
+    <div class="nav-container">
+        <h1 class="logo">🌿 Garden Seller Dashboard</h1>
 
-<!-- Header -->
-   <header>
-        <div class="logo">🌿 Garden</div>
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-        <nav id="navbar">
-                        <a href="/E-Gardening/new/new.html">DASHBOARD</a>
-                <a href="/E-Gardening/Seller/new/sales.html">SALES</a>
-                <a href="/E-Gardening/Seller/new/orders.html">ORDERS</a>
-                <a href="/E-Gardening/Seller/new/product.html">PRODUCT</a>
-                <a href="/E-Gardening/Seller/new/profile.html">PROFILE</a>
-        <!-- LOGOUT BUTTON ADDED -->
-  <a href="../Index.html" class="auth-link" id="logoutBtn">Logout</a>
-    </div>
+        <nav>
+            <ul>
+                <li><a href="./sales.html">Sales</a></li>
+                <li><a href="./orders.html">Orders</a></li>
+                <li><a href="./product.html">Products</a></li>
+                <li><a href="./profile.html">Profile</a></li>
+                <li><a href="../selllogin.html" onclick="logout()">Logout</a></li>
+            </ul>
         </nav>
-        </header>
+    </div>
+</header>
 
-<!-- Products Content -->
 <section class="products-section">
-    <h2>Products Overview 🛒</h2>
 
-    <!-- Stats -->
-    <div class="products-cards">
-        <div class="product-card">
-            <h3>Total Products</h3>
-            <p>120</p>
-        </div>
+<h2>Products Overview 🛒</h2>
 
-        <div class="product-card">
-            <h3>Current Products</h3>
-            <p>95</p>
-        </div>
+<div class="products-cards">
+
+    <div class="product-card" onclick="showDropdown('totalProducts')">
+        <h3>Total Products</h3>
+        <p>120</p>
     </div>
 
-    <!-- Actions -->
-    <div class="product-actions">
-        <div class="action-card">
-            <h3>Change Product</h3>
-           <a href="./edit product.html"> <button class="btn-edit">Edit Product</button></a>
-        </div>
-
-        <div class="action-card">
-            <h3>Delete Product</h3>
-            <a href="./delete.html"><button class="btn-delete">Delete Product</button></a>
-        </div>
+    <div class="product-card" onclick="showDropdown('currentProducts')">
+        <h3>Current Products</h3>
+        <p>95</p>
     </div>
+
+</div>
+
+<!-- TOTAL PRODUCTS -->
+<div class="dropdown" id="totalProducts">
+<h3>Total Product Names</h3>
+<ul>
+<li>Garden Chair</li>
+<li>Outdoor Table</li>
+<li>Flower Pot</li>
+<li>Hanging Lamp</li>
+<li>Garden Bench</li>
+<li>Water Fountain</li>
+<li>Plant Stand</li>
+<li>Decor Stones</li>
+</ul>
+</div>
+
+<!-- CURRENT PRODUCTS -->
+<div class="dropdown" id="currentProducts">
+<h3>Current Available Products</h3>
+<ul>
+<li>Garden Chair</li>
+<li>Outdoor Table</li>
+<li>Flower Pot</li>
+<li>Plant Stand</li>
+<li>Decor Stones</li>
+</ul>
+</div>
+
+<!-- Actions -->
+<div class="product-actions">
+    <div class="action-card">
+        <h3>Change Product</h3>
+        <a href="./edit product.html">
+            <button class="btn-edit">Edit Product</button>
+        </a>
+    </div>
+
+    <div class="action-card">   
+        <h3>Delete Product</h3>
+        <a href="./delete.html">
+            <button class="btn-delete">Delete Product</button>
+        </a>
+    </div>
+</div>
+
 </section>
 
-<!-- Footer -->
-        <!-- FOOTER -->
+      <!-- FOOTER -->
   <footer class="footer">
   <div class="footer-container">
 
@@ -377,6 +359,15 @@
     <p>© 2026 Green Garden | All Rights Reserved</p>
   </div>
 </footer>
+<script>
+function showDropdown(id){
+
+    const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach(drop => drop.style.display = "none");
+
+    document.getElementById(id).style.display = "block";
+}
+</script>
 
 </body>
 </html>

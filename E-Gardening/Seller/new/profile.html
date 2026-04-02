@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Seller Profile</title>
+        <link rel="stylesheet" href="../../header.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/E-Gardening/header.css">
+
     <style>
         * {
             margin: 0;
@@ -20,13 +21,36 @@
 
         /* Header */
         header {
-            background: #2e7d32;
+            background-color: #0b140c;
             padding: 15px 40px;
             color: #fff;
         }
 
-        header h1 {
-            font-size: 24px;
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 15px;
+        }
+
+        nav ul li a:hover {
+            color: #c8e6c9;
         }
 
         /* Profile Section */
@@ -39,7 +63,6 @@
         .profile-section h2 {
             text-align: center;
             margin-bottom: 30px;
-            font-size: 28px;
         }
 
         .profile-form {
@@ -49,8 +72,26 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.08);
         }
 
+        /* Profile Image */
+        .profile-img {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .profile-img img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #2e7d32;
+        }
+
+        .profile-img input {
+            margin-top: 10px;
+        }
+
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .form-group label {
@@ -60,16 +101,12 @@
         }
 
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 12px;
             border-radius: 6px;
             border: 1px solid #ccc;
-            font-size: 14px;
-        }
-
-        .form-group textarea {
-            resize: none;
         }
 
         .form-group input:focus,
@@ -93,187 +130,128 @@
             background: #256428;
         }
 
-        /* Footer */
-    .footer {
-  background-color: #2e7d32;
-  color: white;
-  padding: 40px 20px 10px;
-  font-family: Arial, sans-serif;
-}
+        footer {
+            background: green;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 80px;
+        }
+    /* ================= RESPONSIVE ================= */
 
-/* Container */
-.footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-/* Sections */
-.footer-section {
-  width: 220px;
-  margin: 10px;
-}
-
-.footer-section h3 {
-  margin-bottom: 10px;
-  font-size: 18px;
-}
-
-/* Links */
-.footer-section ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-section ul li {
-  margin: 6px 0;
-}
-
-.footer-section ul li a {
-  text-decoration: none;
-  color: #c8e6c9;
-}
-
-.footer-section ul li a:hover {
-  color: #ffffff;
-}
-
-/* Social Icons */
-.social-icons a {
-  display: block;
-  text-decoration: none;
-  color: #c8e6c9;
-  margin: 5px 0;
-}
-
-.social-icons a:hover {
-  color: #ffffff;
-}
-
-/* Bottom */
-.footer-bottom {
-  text-align: center;
-  border-top: 1px solid #a5d6a7;
-  margin-top: 20px;
-  padding-top: 10px;
-  font-size: 14px;
-}
-/* ================= RESPONSIVE ================= */
-
-/* Tablets */
+/* Tablet */
 @media (max-width: 992px) {
-  .profile-section {
-    padding: 30px 20px;
-  }
 
-  header {
-    padding: 15px 20px;
-  }
+    .nav-container {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .profile-section {
+        padding: 30px 20px;
+    }
 }
 
-/* Mobile Devices */
-@media (max-width: 768px) {
+/* Mobile */
+@media (max-width: 600px) {
 
-  /* Header */
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+    header {
+        padding: 15px 20px;
+    }
 
-  /* Navbar hidden */
-  #navbar {
-    display: none;
-    flex-direction: column;
-    background: #2e7d32;
-    width: 100%;
-    margin-top: 10px;
-  }
+    .logo {
+        font-size: 18px;
+    }
 
-  #navbar a {
-    padding: 10px;
-    border-top: 1px solid rgba(255,255,255,0.2);
-  }
+    .profile-section {
+        padding: 20px 10px;
+    }
 
-  /* Menu icon */
-  .menu-toggle {
-    display: block;
-    font-size: 22px;
-    cursor: pointer;
-  }
+    .profile-form {
+        padding: 20px;
+    }
 
-  /* Show menu */
-  #navbar.active {
-    display: flex;
-  }
+    .profile-img img {
+        width: 90px;
+        height: 90px;
+    }
 
-  /* Form */
-  .profile-form {
-    padding: 20px;
-  }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 10px;
+        font-size: 14px;
+    }
 
-  .profile-section h2 {
-    font-size: 22px;
-  }
+    .btn-save {
+        padding: 12px;
+        font-size: 14px;
+    }
 
-  /* Footer */
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .footer-section {
-    width: 100%;
-  }
-}
-
-/* Small Mobiles */
-@media (max-width: 480px) {
-
-  .profile-section {
-    padding: 20px 10px;
-  }
-
-  .btn-save {
-    font-size: 14px;
-    padding: 12px;
-  }
-}
-    </style>
+    footer {
+        font-size: 14px;
+        padding: 15px;
+    }
+}</style>
 </head>
+
 <body>
-   <header>
-        <div class="logo">🌿 Garden</div>
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-        <nav id="navbar">
-                           <a href="/E-Gardening/new/new.html">DASHBOARD</a>
-                <a href="/E-Gardening/Seller/new/sales.html">SALES</a>
-                <a href="/E-Gardening/Seller/new/orders.html">ORDERS</a>
-                <a href="/E-Gardening/Seller/new/product.html">PRODUCT</a>
-                <a href="/E-Gardening/Seller/new/profile.html">PROFILE</a>
-   
-        <!-- LOGOUT BUTTON ADDED -->
-  <a href="../Index.html" class="auth-link" id="logoutBtn">Logout</a>
-    </div>
-        </nav>
-        </header>
+
 <!-- Header -->
+<header>
+    <div class="nav-container">
+        <h1 class="logo">🌿 Garden Seller Dashboard</h1>
 
+        <nav>
+            <ul>
+                <li><a href="./sales.html">Sales</a></li>
+                <li><a href="./orders.html">Orders</a></li>
+                <li><a href="./product.html">Products</a></li>
+                <li><a href="./profile.html">Profile</a></li>
+                <li><a href="../selllogin.html">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
-<!-- Profile Content -->
+<!-- Profile Section -->
 <section class="profile-section">
     <h2>Update Your Profile 👤</h2>
 
     <form class="profile-form">
+
+        <!-- Profile Image -->
+        <div class="profile-img">
+            <img id="preview" src="https://via.placeholder.com/120" alt="Profile Image">
+            <br>
+            <input type="file" accept="image/*" onchange="loadImage(event)">
+        </div>
+
+        <!-- Basic Details -->
         <div class="form-group">
-            <label>Username</label>
-            <input type="text" placeholder="Enter new username">
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter your name">
+        </div>
+
+        <div class="form-group">
+            <label>Shop Name</label>
+            <input type="text" placeholder="Enter your shop name">
         </div>
 
         <div class="form-group">
             <label>Email</label>
-            <input type="email" placeholder="Enter new email">
+            <input type="email" placeholder="Enter your email">
+        </div>
+
+        <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="Enter phone number">
         </div>
 
         <div class="form-group">
@@ -282,13 +260,24 @@
         </div>
 
         <div class="form-group">
+            <label>Business Type</label>
+            <select>
+                <option>Nursery</option>
+                <option>Plant Seller</option>
+                <option>Seeds Supplier</option>
+                <option>Gardening Tools</option>
+            </select>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
             <label>New Password</label>
             <input type="password" placeholder="Enter new password">
         </div>
 
         <div class="form-group">
             <label>Confirm Password</label>
-            <input type="password" placeholder="Confirm new password">
+            <input type="password" placeholder="Confirm password">
         </div>
 
         <button type="submit" class="btn-save">Save Changes</button>
@@ -296,8 +285,7 @@
 </section>
 
 <!-- Footer -->
-
-        <!-- FOOTER -->
+      <!-- FOOTER -->
   <footer class="footer">
   <div class="footer-container">
 
@@ -343,5 +331,14 @@
     <p>© 2026 Green Garden | All Rights Reserved</p>
   </div>
 </footer>
+
+<!-- JavaScript for Image Preview -->
+<script>
+function loadImage(event) {
+    const preview = document.getElementById('preview');
+    preview.src = URL.createObjectURL(event.target.files[0]);
+}
+</script>
+
 </body>
 </html>
